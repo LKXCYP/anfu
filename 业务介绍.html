@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>福州安复安全咨询服务有限公司</title>
+    <style>
+        body {
+            background-color: #e8f5e9;
+            /* 浅绿色背景 */
+            color: #2e7d32;
+            /* 深绿色文本 */
+            font-family: Arial, sans-serif;
+        }
+
+        h1,
+        h2 {
+            color: #1b5e20;
+            /* 更深的绿色标题 */
+        }
+
+        a {
+            color: #388e3c;
+            /* 绿色链接 */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        #centered-div {
+            border: 2px solid #2e7d32;
+            /* 深绿色边框 */
+            padding: 10px;
+            /* 内边距，使内容与边框有一定距离 */
+            border-radius: 5px;
+            /* 圆角边框 */
+            margin: 0 auto;
+            /* 将外边距设置为自动，使div居中 */
+            text-align: center;
+            /* 将文本内容居中 */
+        }
+
+        nav ul {
+            list-style-type: none;
+            /* 去除列表项的默认标记 */
+            padding: 0;
+        }
+
+        nav ul span {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        nav ul span a {
+            border: 2px solid #2e7d32;
+            /* 深绿色边框 */
+            padding: 5px 10px;
+            /* 内边距 */
+            text-decoration: none;
+            /* 去掉下划线 */
+            color: #2e7d32;
+            /* 链接颜色 */
+        }
+
+       .dropdown {
+            position: relative;
+            display: inline-block;
+            overflow: visible;
+            /* 根据需要调整，确保子元素不会被裁剪 */
+        }
+
+        #dropdown-arrow {
+            margin-right: 0px;
+            /* 根据需要调整 */
+        }
+
+       .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+       .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+       .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        h4 {
+            margin-top: 0;
+            /* 去除h4元素的顶部外边距，使它更贴近边框 */
+        }
+
+        li {
+            list-style-type: none;
+            /* 去除列表项的默认标记 */
+            margin: 5px 0;
+            /* 为每个列表项添加上下外边距，使其间隔开 */
+        }
+
+        /* 修改后的选择器，推荐使用更常规的英文名称 */
+        #double-prevention-mechanism {
+            border: 2px solid #2e7d32;
+            /* 深绿色边框 */
+            padding: 10px;
+            /* 内边距，使内容与边框有一定距离 */
+            border-radius: 15px;
+            /* 圆角边框 */
+            margin: 0 auto;
+            /* 将外边距设置为自动，使div居中 */
+            text-align: left;
+            /* 将文本内容居左 */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            /* 合并表格边框 */
+            margin: 0 auto;
+            /* 表格居中 */
+        }
+
+        th,
+        td {
+            border: 1px solid #2e7d32;
+            /* 深绿色单元格边框 */
+            padding: 10px;
+            /* 单元格内边距 */
+            text-align: center;
+            /* 单元格文本居中 */
+        }
+
+        th {
+            background-color: #c8e6c9;
+            /* 浅绿色表头背景色 */
+        }
+
+        /* 设置特定段落中的链接颜色 */
+       .no-color a {
+            color: inherit;
+            /* 继承父元素的颜色 */
+            text-decoration: none;
+            /* 去掉下划线 */
+        }
+
+        /* 设置 logo 图片的圆角边框 */
+        img {
+            border-radius: 15px;
+            /* 圆角边框 */
+            border: 3px solid #2e7d32;
+            /* 深绿色边框 */
+        }
+
+        /* 居中显示 logo */
+       .logo-container {
+            text-align: center;
+            /* 居中对齐 */
+        }
+
+       .logo-container span {
+            display: inline-block;
+            /* 使 span 元素并排显示 */
+            margin: 0 10px;
+            /* 添加左右外边距 */
+        }
+
+        /* 返回顶部按钮样式 */
+        #back-to-top {
+            display: none;
+            /* 默认隐藏 */
+            position: fixed;
+            /* 固定位置 */
+            bottom: 20px;
+            /* 距离底部20px */
+            right: 20px;
+            /* 距离右侧20px */
+            z-index: 99;
+            /* 确保按钮在最上层 */
+            border: none;
+            /* 无边框 */
+            outline: none;
+            /* 无轮廓 */
+            background-color: #2e7d32;
+            /* 按钮背景色 */
+            color: white;
+            /* 按钮文字颜色 */
+            cursor: pointer;
+            /* 鼠标指针样式 */
+            padding: 15px;
+            /* 内边距 */
+            border-radius: 10px;
+            /* 圆角边框 */
+            font-size: 18px;
+            /* 字体大小 */
+        }
+
+        #back-to-top:hover {
+            background-color: #1b5e20;
+            /* 悬停时的背景色 */
+        }
+    </style>
+    <script>
+        function toggleDropdown() {
+            var dropdownContent = document.getElementById("dropdown-content");
+            var dropdownArrow = document.getElementById("dropdown-arrow");
+            if (dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none";
+                dropdownArrow.innerHTML = "▲";
+            } else {
+                dropdownContent.style.display = "block";
+                dropdownArrow.innerHTML = "▼";
+            }
+        }
+
+        // 显示或隐藏返回顶部按钮
+        window.onscroll = function () {
+            var backToTopButton = document.getElementById("back-to-top");
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                backToTopButton.style.display = "block";
+            } else {
+                backToTopButton.style.display = "none";
+            }
+        };
+
+        // 返回顶部
+        function backToTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+</head>
+
+<body>
+    <div id="centered-div">
+        <img src="images/安复安全logo.png" alt="安复logo" title="至诚学院logo和安复logo" width="400" height="120" />
+        <!-- logo栏 -->
+        <h1 id="home">福州安复安全咨询服务有限公司</h1>
+        <!-- 公司名称 -->
+        <nav>
+            <ul>
+                <span><a href="首页.html" target="_self">首页</a></span>
+                <span><a href="技术支持.html" target="_self">技术支持</a></span>
+                <span><a href="经营范围.html" target="_self">经营范围</a></span>
+                <span><a href="经营范围.html" target="_self">涉及业务</a></span>
+                <span><a href="业务介绍.html" target="_self">业务介绍</a></span>
+                <span class="dropdown">
+                    <a href="javascript:void(0);" onclick="toggleDropdown()">
+                        <span id="dropdown-arrow">▲</span>
+                        <a href="项目展示.html" target="_self">项目展示
+                    </a>
+                    <div id="dropdown-content" class="dropdown-content">
+                        <a href="信息化项目展示.html" target="_self">信息化项目展示</a>
+                        <a href="应急预案编制项目展示.html" target="_self">应急预案编制</a>
+                        <a href="风险评估.html" target="_self">风险评估</a>
+                        <a href="隐患排查.html" target="_self">应急预案编制</a>
+                    </div>
+                </span>
+                <span><a href="关于我们.html" target="_self">关于我们</a></span>
+                <span><a href="联系我们.html" target="_self">联系我们</a></span>
+            </ul>
+        </nav>
+    </div>
+    <h2 id="业务介绍">部分业务介绍</h2>
+    <!-- 修改后的div结构，将h4和段落都包含进来 -->
+    <div id="double-prevention-mechanism">
+        <h3 id="双重预防机制建设及提升">双重预防机制建设及提升</h3>
+        <span>
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本公司根据《中华人民共和国安全生产法》等相关法律法规标准规范，帮助企事业单位建设双重预防机制。从强化培训开始，通过培训提升企事业单位人员对双重预防机制建设的能力，再协助其做好风险辨识，落实管控手段及责任，最后协助企事业单位制定隐患排查治理方案，通过隐患排查的PDCA闭环管理，解决企事业单位“治不了”的问题。
+            </p>
+        </span>
+        <span>
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>双重预防机制建设提升:</b>为了进一步夯实企事业单位安全生产基础，提升安全管理整体水平，持续改进双重预防机制运行绩效，落实安全生产主体责任，防范和遏制安全生产事故的发生，促进企业安全工作实现规范化、制度化、标准化，企业需进行双重预防机制提升工作。在原有的双重预防机制上，重新梳理双重预防机制材料、进行现场勘察、查缺补漏，巩固提升企业双重预防机制。
+            </p>
+        </span>
+        <span>
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>定制化服务:</b>为企业提供双重预防机制定制化服务，通过双重预防机制系统的“PC端 + 移动端”采集管理信息，可随时随地进行安全管理。利用业务流转，实现隐患闭环管理，进行多维度的数据分析，更好地掌控企业安全状况。
+            </p>
+        </span>
+    </div>
+    <br>    
+    <div id="double-prevention-mechanism">
+        <h3 id="区域风险评估">区域风险评估</h3>
+        <span>
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;根据国务院安委办《关于印发标本兼治遏制重特大事故工作指南的通知》(安委办(2016】3号)、国务院办公厅《关于推进城市安全发展的意见》、《国家安全发展示范城市建设指导手册》等文件的要求，按照“整体性原则、网格化原则、分类分级原则”对区域划分单元，从工业风险单元、人员密集场所、公共设施等单元进行风险评估，以强化责任落实为重点，推动安全生产责任落实，建立健全隐患排查治理及重大危险源监控的长效机制，强化安全生产基础，提高安全生产管理水平。</p>
+        </span>
+    </div>
+    <br>    
+    <div id="double-prevention-mechanism">
+        <h3 id="区域防灾减灾规划">区域防灾减灾规划</h3>
+        <span>
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;区域防灾减灾规划，从城市规划与建设的角度讲为抵御和减轻各种自然灾害和人为灾害及由此而引起的次生灾害，对居民生命财产和各项工程设施造成危害的损失所进行的各项防灾规划、防灾设施建设及防救灾管理工作，包括规划防灾、工程防灾、管理防灾。分析区域现有防灾减灾工作及手段，查缺补漏，对区域防灾建设防灾工作进行新的规划，提高区域整体安全发展水平。
+            </p>
+        </span>
+    </div>
+    <br>    
+    <div id="double-prevention-mechanism">
+        <h3 id="生产安全事故应急预案编制与应急能力提升">生产安全事故应急预案编制与应急能力提升</h3>
+        <span>
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;依据《生产安全事故应急条例》(国务院令第708号)及《生产安全事故应急预案管理办法(2019修正)》(应急管理部令第2号)及相关要求，生产经营单位应当针对本单位可能发生的生产安全事故的特点和危害，进行风险辨识和评估，制定相应的生产安全事故应急预案。
+            </p>
+        </span>
+        <span>
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>双重预防机制建设提升:</b>应急能力提升服务:为提高企业应急能力，协助企业对自身进行事故风险辨识、评估和应急资源评估，查缺补漏，健全企业应急管理组织体系，强化企业管理责任，完善企业应急管理制度。协助企业提高用急救员水平，加强企业应急队伍建设。帮助企业开展应急文化建设。
+            </p>
+        </span>
+    </div>
+    <br>    
+    <div id="double-prevention-mechanism">
+        <h3 id="6S+目视化现场管理">6S+目视化现场管理</h3>
+        <span>
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;针对现场管理采用6S+目视化管理体系，从“整理、整顿、清扫、清洁、素养、安全”六个方面结合目视化进行现场管理。目视化是利用形象直观而又色彩适宜的各种视觉感知信息来组织现场生产活动，达到提高劳动生产率的一种管理手段，把两者相结合对企业实施健康、安全与环境管理(H.S.E)，进一步建立和完善企业的管理体系。
+            </p>
+        </span>
+    </div>
+    <br>
+    <div id="double-prevention-mechanism">
+        <h3 id="双重预防机制信息化建设">双重预防机制信息化建设</h3>
+        <span>
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;双重预防机制信息化建设工作内容丰富，涵盖系统规划与设计，要深入开展需求分析，了解企业在风险分级管控和隐患排查治理方面的业务、部门岗位及系统集成需求，搭建包括数据采集、传输、处理和应用展示层的架构，确定合适技术框架；进行数据采集与管理，通过多种方式收集风险和隐患数据，分类存储并做好数据治理；建设风险分级管控模块，完成风险识别、评估和管控，设定评估模型和算法，明确管控措施与责任；建设隐患排查治理模块，制定排查计划，实现隐患上报、处理和统计分析，为安全管理提供决策依据；搭建预警与应急管理模块，设置预警阈值和规则，通过多种方式发布预警，建立应急预案库并提供应急指挥支持；开展系统集成与接口建设，实现内部与其他系统集成，预留外部接口满足监管要求；做好系统运维与安全管理，保障系统稳定运行、数据安全；同时，不能忽视培训与宣传，提升员工对系统的认知和操作能力 。
+            </p>
+        </span>
+    </div>
+</body>
+</script>
+</html>

@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>福州安复安全咨询服务有限公司</title>
+    <style>
+      body {
+          background-color: #e8f5e9; /* 浅绿色背景 */
+          color: #2e7d32; /* 深绿色文本 */
+          font-family: Arial, sans-serif;
+      }
+
+      h1, h2 {
+          color: #1b5e20; /* 更深的绿色标题 */
+      }
+
+      a {
+          color: #388e3c; /* 绿色链接 */
+          text-decoration: none;
+      }
+
+      a:hover {
+          text-decoration: underline;
+      }
+
+      #centered-div {
+          border: 2px solid #2e7d32; /* 深绿色边框 */
+          padding: 10px; /* 内边距，使内容与边框有一定距离 */
+          border-radius: 5px; /* 圆角边框 */
+          margin: 0 auto; /* 将外边距设置为自动，使div居中 */
+          text-align: center; /* 将文本内容居中 */
+      }
+
+      nav ul {
+          list-style-type: none; /* 去除列表项的默认标记 */
+          padding: 0;
+      }
+
+      nav ul span {
+          display: inline-block;
+          margin-right: 20px;
+      }
+
+      nav ul span a {
+          border: 2px solid #2e7d32; /* 深绿色边框 */
+          padding: 5px 10px; /* 内边距 */
+          text-decoration: none; /* 去掉下划线 */
+          color: #2e7d32; /* 链接颜色 */
+      }
+
+      .dropdown {
+    position: relative;
+    display: inline-block;
+    overflow: visible; /* 根据需要调整，确保子元素不会被裁剪 */
+}
+    #dropdown-arrow {
+    margin-right: 0px; /* 根据需要调整 */
+    }
+      .dropdown-content {
+          display: none;
+          position: absolute;
+          background-color: #f9f9f9;
+          min-width: 160px;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          z-index: 1;
+      }
+
+      .dropdown-content a {
+          color: black;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+      }
+
+      .dropdown-content a:hover {
+          background-color: #f1f1f1;
+      }
+
+      h4 {
+          margin-top: 0; /* 去除h4元素的顶部外边距，使它更贴近边框 */
+      }
+
+      li {
+          list-style-type: none; /* 去除列表项的默认标记 */
+          margin: 5px 0; /* 为每个列表项添加上下外边距，使其间隔开 */
+      }
+
+      table {
+          width: 100%;
+          border-collapse: collapse; /* 合并表格边框 */
+          margin: 0 auto; /* 表格居中 */
+      }
+
+      th, td {
+          border: 1px solid #2e7d32; /* 深绿色单元格边框 */
+          padding: 10px; /* 单元格内边距 */
+          text-align: center; /* 单元格文本居中 */
+      }
+
+      th {
+          background-color: #c8e6c9; /* 浅绿色表头背景色 */
+      }
+
+      /* 设置特定段落中的链接颜色 */
+      .no-color a {
+          color: inherit; /* 继承父元素的颜色 */
+          text-decoration: none; /* 去掉下划线 */
+      }
+
+      /* 设置 logo 图片的圆角边框 */
+      img {
+          border-radius: 15px; /* 圆角边框 */
+          border: 3px solid #2e7d32; /* 深绿色边框 */
+      }
+
+      /* 居中显示 logo */
+      .logo-container {
+          text-align: center; /* 居中对齐 */
+      }
+
+      .logo-container span {
+          display: inline-block; /* 使 span 元素并排显示 */
+          margin: 0 10px; /* 添加左右外边距 */
+      }
+
+      /* 返回顶部按钮样式 */
+      #back-to-top {
+          display: none; /* 默认隐藏 */
+          position: fixed; /* 固定位置 */
+          bottom: 20px; /* 距离底部20px */
+          right: 20px; /* 距离右侧20px */
+          z-index: 99; /* 确保按钮在最上层 */
+          border: none; /* 无边框 */
+          outline: none; /* 无轮廓 */
+          background-color: #2e7d32; /* 按钮背景色 */
+          color: white; /* 按钮文字颜色 */
+          cursor: pointer; /* 鼠标指针样式 */
+          padding: 15px; /* 内边距 */
+          border-radius: 10px; /* 圆角边框 */
+          font-size: 18px; /* 字体大小 */
+      }
+
+      #back-to-top:hover {
+          background-color: #1b5e20; /* 悬停时的背景色 */
+      }
+    </style>
+    <script>
+      function toggleDropdown() {
+          var dropdownContent = document.getElementById("dropdown-content");
+          var dropdownArrow = document.getElementById("dropdown-arrow");
+          if (dropdownContent.style.display === "block") {
+              dropdownContent.style.display = "none";
+              dropdownArrow.innerHTML = "▲";
+          } else {
+              dropdownContent.style.display = "block";
+              dropdownArrow.innerHTML = "▼";
+          }
+      }
+
+      // 显示或隐藏返回顶部按钮
+      window.onscroll = function() {
+          var backToTopButton = document.getElementById("back-to-top");
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+              backToTopButton.style.display = "block";
+          } else {
+              backToTopButton.style.display = "none";
+          }
+      };
+
+      // 返回顶部
+      function backToTop() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="centered-div">
+      <img src="images/安复安全logo.png" alt="安复logo" title="至诚学院logo和安复logo" width="400" height="120"/>
+      <!-- logo栏 -->
+      <h1 id="home">福州安复安全咨询服务有限公司</h1>
+      <!-- 公司名称 -->
+      <nav>
+        <ul>
+            <span><a href="首页.html" target="_self">首页</a></span>
+            <span><a href="技术支持.html" target="_self">技术支持</a></span>
+          <span><a href="经营范围.html" target="_self">经营范围</a></span>
+          <span><a href="经营范围.html" target="_self">涉及业务</a></span>
+          <span><a href="业务介绍.html" target="_self">业务介绍</a></span>
+          <span class="dropdown">
+            <a href="javascript:void(0);" onclick="toggleDropdown()">
+                <span id="dropdown-arrow">▲</span>
+                <a href="项目展示.html" target="_self">项目展示
+            </a>
+            <div id="dropdown-content" class="dropdown-content">
+                <a href="信息化项目展示.html" target="_self">信息化项目展示</a>
+                <a href="应急预案编制项目展示.html" target="_self">应急预案编制</a>
+                <a href="风险评估.html" target="_self">风险评估</a>
+                <a href="隐患排查.html" target="_self">应急预案编制</a>
+            </div>
+        </span>
+          <span><a href="关于我们.html" target="_self">关于我们</a></span>
+          <span><a href="联系我们.html" target="_self">联系我们</a></span>
+        </ul>
+      </nav>
+    </div>
+   <h2 id="项目展示">项目展示</h2>
+      <h4 id="信息化项目展示">信息化项目展示</h4>
+      <p>
+        &nbsp&nbsp在数字化转型的浪潮中，福州安复安全咨询服务有限公司凭借深厚的技术积淀和丰富的行业经验，精心打造了一系列备受瞩目的信息化项目，为不同领域的客户提供了高效、专业的安全管理解决方案。
+      </p>
+      <p>
+        &nbsp&nbsp福州大学至诚学院蓬安云安全应急综合管控平台，借助先进的云技术，实现了校园安全信息的全面整合与实时监控，为校园安全应急管理提供了智能化的决策支持，有效提升了校园安全管理的效率和水平。
+      </p>
+      <p>
+        &nbsp&nbsp黑龙江省道路运输行业安全风险分级管控和隐患排查治理监管系统，紧密贴合道路运输行业的实际需求，构建了完善的风险分级管控和隐患排查治理体系，实现了对道路运输安全风险的精准识别、评估与管控，有力保障了黑龙江省道路运输行业的安全稳定运行。
+      </p>
+      <p>
+        &nbsp&nbsp道路运输行业安全风险分级管控和隐患排查治理系统，为道路运输企业提供了一套标准化、规范化的安全管理工具，帮助企业有效落实安全主体责任，提升安全管理能力，降低事故风险，在行业内树立了信息化安全管理的典范。
+      </p>
+      <p>
+        华北理工大学附属医院蓬安云安全应急综合管控平台，针对医院复杂的环境和特殊的安全需求，打造了一体化的安全应急管控体系，实现了医疗安全、消防安全、信息安全等多维度的综合管理，为医院的正常运营和患者的生命健康提供了坚实的安全保障。
+      </p>
+      <table>
+        <tr>
+          <th>项目名称</th>
+          <th>链接</th>
+        </tr>
+        <tr>
+          <td>福州大学至诚学院蓬安云安全应急综合管控平台</td>
+          <td><a href="http://testenterprisevue.pengxisafety.com/#/dashboard">（可对外展示）</a></td>
+        </tr>
+        <tr>
+          <td>黑龙江省道路运输行业安全风险分级管控和隐患排查治理监管系统</td>
+          <td><a href="http://tcgt.anyunbao12328.com/Admin/big_data_homepage.html">（可对外展示）</a></td>
+        </tr>
+        <tr>
+          <td>道路运输行业安全风险分级管控和隐患排查治理系统</td>
+          <td><a href="http://tcet.anyunbao12328.com/Admin/big_data_page.html?hasA=1">（可对外展示）</a></td>
+        </tr>
+        <tr>
+          <td>华北理工大学附属医院蓬安云安全应急综合管控平台</td>
+          <td><a href="http://cs.yl.enterprise.pengxisafety.com/#/dashboard">（可对外展示）</a></td>
+        </tr>
+      </table>
+        <button id="back-to-top" onclick="backToTop()">返回顶部</button>
+    </body>
+    </html>
+
+<style>
+  /* 返回顶部按钮样式 */
+  #back-to-top {
+      display: none; /* 默认隐藏 */
+      position: fixed; /* 固定位置 */
+      bottom: 20px; /* 距离底部20px */
+      right: 20px; /* 距离右侧20px */
+      z-index: 99; /* 确保按钮在最上层 */
+      border: none; /* 无边框 */
+      outline: none; /* 无轮廓 */
+      background-color: #2e7d32; /* 按钮背景色 */
+      color: white; /* 按钮文字颜色 */
+      cursor: pointer; /* 鼠标指针样式 */
+      padding: 15px; /* 内边距 */
+      border-radius: 10px; /* 圆角边框 */
+      font-size: 18px; /* 字体大小 */
+  }
+
+  #back-to-top:hover {
+      background-color: #1b5e20; /* 悬停时的背景色 */
+  }
+</style>
+
+<script>
+  // 显示或隐藏返回顶部按钮
+  window.onscroll = function() {
+      var backToTopButton = document.getElementById("back-to-top");
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          backToTopButton.style.display = "block";
+      } else {
+          backToTopButton.style.display = "none";
+      }
+  };
+
+  // 返回顶部
+  function backToTop() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+  }
+</script>
