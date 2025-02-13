@@ -27,7 +27,7 @@
           border: 2px solid #2e7d32; /* 深绿色边框 */
           padding: 10px; /* 内边距，使内容与边框有一定距离 */
           border-radius: 5px; /* 圆角边框 */
-          margin: 0 auto; /* 将外边距设置为自动，使div居中 */
+          margin: 0; /* 将外边距设置为0，使div左对齐 */
           text-align: center; /* 将文本内容居中 */
       }
 
@@ -48,6 +48,36 @@
           color: #2e7d32; /* 链接颜色 */
       }
 
+      .dropdown {
+          position: relative;
+          display: inline-block;
+          overflow: visible; /* 根据需要调整，确保子元素不会被裁剪 */
+      }
+
+      #dropdown-arrow {
+          margin-right: 0px; /* 根据需要调整 */
+      }
+
+      .dropdown-content {
+          display: none;
+          position: absolute;
+          background-color: #f9f9f9;
+          min-width: 160px;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          z-index: 1;
+      }
+
+      .dropdown-content a {
+          color: black;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+      }
+
+      .dropdown-content a:hover {
+          background-color: #f1f1f1;
+      }
+
       h4 {
           margin-top: 0; /* 去除h4元素的顶部外边距，使它更贴近边框 */
       }
@@ -60,12 +90,13 @@
       table {
           width: 100%;
           border-collapse: collapse; /* 合并表格边框 */
+          margin: 0; /* 表格左对齐 */
       }
 
       th, td {
           border: 1px solid #2e7d32; /* 深绿色单元格边框 */
           padding: 10px; /* 单元格内边距 */
-          text-align: left; /* 单元格文本左对齐 */
+          text-align: center; /* 单元格文本居中 */
       }
 
       th {
@@ -83,101 +114,238 @@
           border-radius: 15px; /* 圆角边框 */
           border: 3px solid #2e7d32; /* 深绿色边框 */
       }
+
+      /* 居中显示 logo */
+      .logo-container {
+          text-align: center; /* 居中对齐 */
+      }
+
+      .logo-container span {
+          display: inline-block; /* 使 span 元素并排显示 */
+          margin: 0 10px; /* 添加左右外边距 */
+      }
+
+      /* 返回顶部按钮样式 */
+      #back-to-top {
+          display: none; /* 默认隐藏 */
+          position: fixed; /* 固定位置 */
+          bottom: 20px; /* 距离底部20px */
+          right: 20px; /* 距离右侧20px */
+          z-index: 99; /* 确保按钮在最上层 */
+          border: none; /* 无边框 */
+          outline: none; /* 无轮廓 */
+          background-color: #2e7d32; /* 按钮背景色 */
+          color: white; /* 按钮文字颜色 */
+          cursor: pointer; /* 鼠标指针样式 */
+          padding: 15px; /* 内边距 */
+          border-radius: 10px; /* 圆角边框 */
+          font-size: 18px; /* 字体大小 */
+      }
+
+      #back-to-top:hover {
+          background-color: #1b5e20; /* 悬停时的背景色 */
+      }
+
+      /* 轮播容器样式 */
+      #slider {
+          position: relative;
+          width: 600px;
+          height: 600px;
+          overflow: hidden;
+          margin: 0; /* 左对齐 */
+      }
+
+      /* 图片列表样式 */
+      #slider ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          position: absolute;
+          width: 80%;
+          height: 80%;
+      }
+
+      /* 单个图片样式 */
+      #slider ul li {
+          position: absolute;
+          width: 80%;
+          height: 80%;
+          opacity: 0;
+          transition: opacity 1s;
+      }
+
+      /* 图片样式 */
+      #slider ul li img {
+          width: 80%;
+          height: 80%;
+          object-fit: cover;
+      }
+
+      /* 显示当前图片 */
+      #slider ul li.active {
+          opacity: 1;
+      }
     </style>
+    <script>
+      function toggleDropdown() {
+          var dropdownContent = document.getElementById("dropdown-content");
+          var dropdownArrow = document.getElementById("dropdown-arrow");
+          if (dropdownContent.style.display === "block") {
+              dropdownContent.style.display = "none";
+              dropdownArrow.innerHTML = "▲";
+          } else {
+              dropdownContent.style.display = "block";
+              dropdownArrow.innerHTML = "▼";
+          }
+      }
+
+      // 显示或隐藏返回顶部按钮
+      window.onscroll = function() {
+          var backToTopButton = document.getElementById("back-to-top");
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+              backToTopButton.style.display = "block";
+          } else {
+              backToTopButton.style.display = "none";
+          }
+      };
+
+      // 返回顶部
+      function backToTop() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+      }
+
+      // 图片轮播
+      document.addEventListener("DOMContentLoaded", function() {
+          var slides = document.querySelectorAll("#slider ul li");
+          var currentIndex = 0;
+
+          function showSlide(index) {
+              slides.forEach(function(slide, i) {
+                  slide.classList.remove("active");
+                  if (i === index) {
+                      slide.classList.add("active");
+                  }
+              });
+          }
+
+          function nextSlide() {
+              currentIndex = (currentIndex + 1) % slides.length;
+              showSlide(currentIndex);
+          }
+
+          showSlide(currentIndex);
+          setInterval(nextSlide, 3000); // 每3秒切换一次图片
+      });
+    </script>
   </head>
 
   <body>
     <div id="centered-div">
-      <img src="images/安复logo.png" alt="安复logo" title="至诚学院logo和安复logo" width="400"/>
+      <img src="images/安复安全logo.png" alt="安复logo" title="至诚学院logo和安复logo" width="400" height="120"/>
       <!-- logo栏 -->
       <h1 id="home">福州安复安全咨询服务有限公司</h1>
       <!-- 公司名称 -->
       <nav>
         <ul>
-          <span><a href="#home">首页</a></span>
+          <span><a href="首页.html" target="_self">首页</a></span>
+          <span><a href="技术支持.html" target="_self">技术支持</a></span>
+          <span><a href="经营范围.html" target="_self">经营范围</a></span>
+          <span><a href="经营范围.html" target="_self">涉及业务</a></span>
+          <span><a href="业务介绍.html" target="_self">业务介绍</a></span>
           <span class="dropdown">
-            <a href="#" class="dropbtn">服务项目</a>
-          </span>
-          <span><a href="#about">关于我们</a></span>
-          <span><a href="#contact">联系我们</a></span>
+            <a href="javascript:void(0);" onclick="toggleDropdown()">
+                <span id="dropdown-arrow">▲</span>
+                <a href="项目展示.html" target="_self">项目展示
+            </a>
+            <div id="dropdown-content" class="dropdown-content">
+                <a href="信息化项目展示.html" target="_self">信息化项目展示</a>
+                <a href="应急预案编制项目展示.html" target="_self">应急预案编制</a>
+                <a href="风险评估.html" target="_self">风险评估</a>
+                <a href="隐患排查.html" target="_self">应急预案编制</a>
+            </div>
+        </span>
+          <span><a href="关于我们.html" target="_self">关于我们</a></span>
+          <span><a href="联系我们.html" target="_self">联系我们</a></span>
         </ul>
       </nav>
     </div>
-    <h2>公司地址</h2>
-    <p>
-      福建省福州市鼓楼区洪山镇福三路20号（原工业路东侧,福三路北侧洪山园地块）华润万象城（一区）（一期）S5#楼12层05办公
-    </p>
-    <p>
-      <a href="https://www.zhipin.com/companys/25d93bf441972c191Hx9296-GVQ~.html" target="_blank">详细信息</a>
-    </p>
-    <!-- 跳转到外部链接（boss直聘）的简介 -->
-    <h2>
-      主营项目
-    </h2>
-    <p>
-      &nbsp&nbsp在数字化转型的浪潮中，福州安复安全咨询服务有限公司凭借深厚的技术积淀和丰富的行业经验，精心打造了一系列备受瞩目的信息化项目，为不同领域的客户提供了高效、专业的安全管理解决方案。
-    </p>
-    <p>
-      &nbsp&nbsp福州大学至诚学院蓬安云安全应急综合管控平台，借助先进的云技术，实现了校园安全信息的全面整合与实时监控，为校园安全应急管理提供了智能化的决策支持，有效提升了校园安全管理的效率和水平。
-    </p>
-    <p>
-      &nbsp&nbsp黑龙江省道路运输行业安全风险分级管控和隐患排查治理监管系统，紧密贴合道路运输行业的实际需求，构建了完善的风险分级管控和隐患排查治理体系，实现了对道路运输安全风险的精准识别、评估与管控，有力保障了黑龙江省道路运输行业的安全稳定运行。
-    </p>
-    <p>
-      &nbsp&nbsp道路运输行业安全风险分级管控和隐患排查治理系统，为道路运输企业提供了一套标准化、规范化的安全管理工具，帮助企业有效落实安全主体责任，提升安全管理能力，降低事故风险，在行业内树立了信息化安全管理的典范。
-    </p>
-    <p>
-      华北理工大学附属医院蓬安云安全应急综合管控平台，针对医院复杂的环境和特殊的安全需求，打造了一体化的安全应急管控体系，实现了医疗安全、消防安全、信息安全等多维度的综合管理，为医院的正常运营和患者的生命健康提供了坚实的安全保障。
-    </p>
-    <div>
-      <h4>项目表</h4>
-      <table>
-        <tr>
-          <th>项目名称</th>
-          <th>链接</th>
-        </tr>
-        <tr>
-          <td>福州大学至诚学院蓬安云安全应急综合管控平台</td>
-          <td><a href="http://testenterprisevue.pengxisafety.com/#/dashboard">（可对外展示）</a></td>
-        </tr>
-        <tr>
-          <td>黑龙江省道路运输行业安全风险分级管控和隐患排查治理监管系统</td>
-          <td><a href="http://tcgt.anyunbao12328.com/Admin/big_data_homepage.html">（可对外展示）</a></td>
-        </tr>
-        <tr>
-          <td>道路运输行业安全风险分级管控和隐患排查治理系统</td>
-          <td><a href="http://tcet.anyunbao12328.com/Admin/big_data_page.html?hasA=1">（可对外展示）</a></td>
-        </tr>
-        <tr>
-          <td>华北理工大学附属医院蓬安云安全应急综合管控平台</td>
-          <td><a href="http://cs.yl.enterprise.pengxisafety.com/#/dashboard">（可对外展示）</a></td>
-        </tr>
-      </table>
+    <div id="slider">
+        <ul>
+            <li class="active"><img src="images/1.png" alt="图片1"></li>
+            <li><img src="images/2.png" alt="图片2"></li>
+            <li><img src="images/3.png" alt="图片3"></li>
+            <li><img src="images/4.png" alt="图片4"></li>
+            <li><img src="images/5.png" alt="图片5"></li>
+            <li><img src="images/6.png" alt="图片6"></li>
+            <li><img src="images/7.png" alt="图片7"></li>
+            <li><img src="images/8.png" alt="图片8"></li>
+            <li><img src="images/9.png" alt="图片9"></li>
+            <li><img src="images/10.png" alt="图片10"></li>
+            <li><img src="images/11.png" alt="图片11"></li>
+            <li><img src="images/12.png" alt="图片12"></li>
+            <li><img src="images/13.png" alt="图片13"></li>
+            <li><img src="images/14.png" alt="图片14"></li>
+            <li><img src="images/15.png" alt="图片15"></li>
+            <li><img src="images/16.png" alt="图片16"></li>
+            <li><img src="images/17.png" alt="图片17"></li>
+            <li><img src="images/18.png" alt="图片18"></li>
+            <li><img src="images/19.png" alt="图片19"></li>
+            <li><img src="images/20.png" alt="图片20"></li>
+            <li><img src="images/21.png" alt="图片21"></li>
+            <li><img src="images/22.png" alt="图片22"></li>
+            <li><img src="images/23.png" alt="图片23"></li>
+            <li><img src="images/24.png" alt="图片24"></li>
+            <li><img src="images/25.png" alt="图片25"></li>
+            <li><img src="images/26.png" alt="图片26"></li>
+            <li><img src="images/27.png" alt="图片27"></li>
+            <li><img src="images/28.png" alt="图片28"></li>
+            <li><img src="images/安复logo.png" alt="图片29"></li>
+            <li><img src="images/福建蓬希logo.png"alt=图片30"></li>
+            <li><img src="images/福州大学logo.jpg" alt="图片31"></li>
+        </ul>
     </div>
-    <h2 id="about">关于我们</h2>
-    <p>
-      &nbsp&nbsp福州安复安全咨询服务有限公司是一家专注于安全管理领域的高新技术企业，公司成立于2018年，总部位于福建省福州市鼓楼区洪山镇福三路20号（原工业路东侧,福三路北侧洪山园地块）华润万象城（一区）（一期）S5#楼12层05办公。
-    </p>
-    <p>
-      &nbsp&nbsp公司拥有一支由国内外知名高校和科研院所的专家学者组成的技术团队，具有丰富的安全管理经验和深厚的技术积累，致力于为客户提供专业、高效的安全管理解决方案。
-    </p>
-    <p>
-      &nbsp&nbsp公司主营业务包括信息化安全、消防安全、安全生产、安全培训等多个领域，涵盖了政府、企事业单位、学校、医院等多个行业，为客户提供了全方位的安全管理服务。
-    </p>
-    <h2 id="contact">联系我们</h2>
-    <p>
-      &nbsp&nbsp公司地址：福建省福州市鼓楼区洪山镇福三路20号（原工业路东侧,福三路北侧洪山园地块）华润万象城（一区）（一期）S5#楼12层05办公
-    </p>
-    <p>
-      &nbsp&nbsp联系电话：0591-8377-1234
-    </p>
-    <p>
-      &nbsp&nbsp电子邮箱：122726740@qq.com
-      <a href="mailto:122726740@qq.com" target="_blank">发送邮件</a>
-    </p>
-    <p class="no-color">
-      &nbsp&nbsp蓬希总公司官网：
-      <a href="http://www.pengxisafety.com" target="_blank">www.pengxisafety.com</a>
-    </p>
+    <button id="back-to-top" onclick="backToTop()">返回顶部</button>
   </body>
 </html>
+
+<style>
+  /* 返回顶部按钮样式 */
+  #back-to-top {
+      display: none; /* 默认隐藏 */
+      position: fixed; /* 固定位置 */
+      bottom: 20px; /* 距离底部20px */
+      right: 20px; /* 距离右侧20px */
+      z-index: 99; /* 确保按钮在最上层 */
+      border: none; /* 无边框 */
+      outline: none; /* 无轮廓 */
+      background-color: #2e7d32; /* 按钮背景色 */
+      color: white; /* 按钮文字颜色 */
+      cursor: pointer; /* 鼠标指针样式 */
+      padding: 15px; /* 内边距 */
+      border-radius: 10px; /* 圆角边框 */
+      font-size: 18px; /* 字体大小 */
+  }
+
+  #back-to-top:hover {
+      background-color: #1b5e20; /* 悬停时的背景色 */
+  }
+</style>
+
+<script>
+  // 显示或隐藏返回顶部按钮
+  window.onscroll = function() {
+      var backToTopButton = document.getElementById("back-to-top");
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          backToTopButton.style.display = "block";
+      } else {
+          backToTopButton.style.display = "none";
+      }
+  };
+
+  // 返回顶部
+  function backToTop() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+  }
+</script>
