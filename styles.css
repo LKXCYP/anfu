@@ -179,3 +179,15 @@ img {
 #slider ul li.active {
     opacity: 1;
 }
+#double-prevention-mechanism {
+    border: 2px solid #2e7d32;
+    /* 深绿色边框 */
+    padding: 10px;
+    /* 内边距，使内容与边框有一定距离 */
+    border-radius: 15px;
+    /* 圆角边框 */
+    margin: 0 auto;
+    /* 将外边距设置为自动，使div居中 */
+    text-align: left;
+    /* 将文本内容居左 */
+}
